@@ -10,22 +10,26 @@ services:
     # ports:
     #   - "8080:8080"
     #   - "8081:8181"
+    # ports:
+    #   - "8080:8080"
+    #   - "8081:8081"
     volumes:
       - ./backend/src:/src
       - ./backend/package.json:/package.json
       - ./backend/server.js:/server.js
     command:
       ['sh', '-cx', "npm i && npm run dev"]
-    networks:
-      public:
+    network_mode: host
+    # networks:
+    #   host:
   frontend:
     image: node:lts
     working_dir: /code
     # build:
       # context: frontend
       # target: development
-    ports:
-      - "8127:8127"
+    # ports:
+    #   - "8127:8127"
     volumes:
       - ./frontend/src:/code/src
       - ./frontend/img:/code/img
@@ -36,8 +40,9 @@ services:
       - ./frontend/package.json:/code/package.json
     depends_on: 
       - backend
-    command: ['sh', '-cx', "npm install && npm run build && npm run dev"]
-    networks:
-      - public
-networks:
-  public:
+    command: ['sh', '-cx', "npm install && npm run build && npm run preview"]
+    network_mode: host
+#     networks:
+#       host:
+# networks:
+#   host:

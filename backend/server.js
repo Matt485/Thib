@@ -4,12 +4,7 @@ const server = Server({
   // Provide the definitions for your game(s).
   games: [],
 
-  origins: [
-    // Allow your game site to connect.
-    // 'http://172.[16-32].\d+.\d+',
-    // Allow localhost to connect, except when NODE_ENV is 'production'.
-    Origins.LOCALHOST_IN_DEVELOPMENT
-  ],
+  origins: ['172.18.0.2', '172.18.0.3', 'http://172.18.0.2', 'http://172.18.0.3', Origins.LOCALHOST],
 });
 
 const lobbyConfig = {
