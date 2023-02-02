@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "dev": "DEBUG=vite:* vite",
-    "build": "DEBUG=vite:* vite build",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
