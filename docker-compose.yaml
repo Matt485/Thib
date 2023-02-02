@@ -28,6 +28,7 @@ services:
       - "8127:8127"
     volumes:
       - ./frontend/src:/code/src
+      - ./frontend/img:/code/img
       - ./frontend/vite.config.ts:/code/vite.config.ts
       - ./frontend/tailwind.config.js:/code/tailwind.config.js
       - ./frontend/index.html:/code/index.html
