@@ -1,23 +1,32 @@
-import express from 'express';
-// import { TicTacToe } from './src/Game.js';
+const { Server, Origins } = require('boardgame.io/server');
 
-const app = express();
-// const server = Server ({games: TicTacToe});
-const PORT = process.env.PORT || 8080;
+const server = Server({
+  // Provide the definitions for your game(s).
+  games: [],
 
+  origins: [
+    // Allow your game site to connect.
+    // 'http://172.[16-32].\d+.\d+',
+    // Allow localhost to connect, except when NODE_ENV is 'production'.
+    Origins.LOCALHOST_IN_DEVELOPMENT
+  ],
+});
 
-app.get ('/', (req, res)=>{
-  res
-    .status(200)
-    .send('Hello server is running')
-    .end ();
-})
-
-app.listen (PORT, ()=>{
-  console.log (`App listen on port ${PORT}`)
-  console.log (`Press Ctrl+C to quit`)
-})
-
+const lobbyConfig = {
+  apiPort: 8081,
+  apiCallback: () => console.log('Running Lobby API on port 8080...'),
+};
 
 
+server.router.get('/customend', (ctx, next) => {
+  ctx.body = 'Hello World!';
+});
 
+// Add middleware to the create game route.
+server.router.use('/games/:name/create', async (ctx, next) => {
+  // const { numPlayers, setupData } = await fetchDataFromSomeCustomAPI();
+  ctx.body = 'Hello Middleware!';
+  next();
+});
+
+server.run({ port: 8080, lobbyConfig }, () => console.log("server running..."));
