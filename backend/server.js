@@ -13,10 +13,16 @@ const lobbyConfig = {
   apiCallback: () => console.log('Running Lobby API on port 8081...'),
 };
 
-
-server.router.get('/customend', (ctx, next) => {
-  ctx.body = 'Hello World!';
+server.use(async (ctx, next) => {
+    ctx.set('Access-Control-Allow-Origin', '*');
+    ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+    await next();
 });
+
+//
+// server.router.get('/customend', (ctx, next) => {
+//   ctx.body = 'Hello World!';
+// });
 
 // Add middleware to the create game route.
 server.router.use('/games/:name/create', async (ctx, next) => {
