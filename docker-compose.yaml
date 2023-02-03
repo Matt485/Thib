@@ -30,6 +30,7 @@ services:
       # target: development
     ports:
       - "8127:8127"
+      - "4173:4173"
     volumes:
       - ./frontend/src:/code/src
       - ./frontend/img:/code/img

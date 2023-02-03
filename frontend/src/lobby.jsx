@@ -48,7 +48,7 @@ const lobby = () => {
 
   const getLobbyData = () => {
 
-    fetch('http://localhost:8081/games')
+    fetch('http://51.38.32.47:8081/games')
       .then((response) => response.json())
       .then((data) => console.log(data));
   };
