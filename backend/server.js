@@ -4,7 +4,8 @@ import { TicTacToe } from './src/Game.mjs';
 const server = Server({
   // Provide the definitions for your game(s).
   games: [TicTacToe],
-  origins: ['http://example.com', Origins.LOCALHOST_IN_DEVELOPMENT],
+
+  Origins: ['http://example.com', Origins.LOCALHOST_IN_DEVELOPMENT],
 });
 
 const lobbyConfig = {
