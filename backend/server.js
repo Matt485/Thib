@@ -13,12 +13,14 @@ const lobbyConfig = {
   apiCallback: () => console.log('Running Lobby API on port 8081...'),
 };
 
-server.use(async (ctx, next) => {
+console.log(server);
+
+server.router.use(async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*');
     ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
     await next();
 });
-
+//
 //
 // server.router.get('/customend', (ctx, next) => {
 //   ctx.body = 'Hello World!';
