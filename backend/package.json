@@ -10,7 +10,8 @@
   "author": "",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
-    "boardgame.io": "^0.50.2"
+    "boardgame.io": "^0.50.2",
+    "vite": "^4.0.4"
   },
   "devDependencies": {
   }
