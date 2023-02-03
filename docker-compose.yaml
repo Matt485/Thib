@@ -3,6 +3,7 @@ services:
   backend:
     image: node:lts
     # user: "node"
+    working_dir: /code
     # build:
     #   args:
     #     - NODE_ENV=development
@@ -15,9 +16,9 @@ services:
     #   - "8080:8080"
     #   - "8081:8081"
     volumes:
-      - ./backend/src:/src
-      - ./backend/package.json:/package.json
-      - ./backend/server.js:/server.js
+      - ./backend/src:/code/src
+      - ./backend/package.json:/code/package.json
+      - ./backend/server.js:/code/server.js
     command:
       ['sh', '-cx', "npm i && npm run dev"]
     network_mode: host
