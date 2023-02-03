@@ -5,7 +5,7 @@ const server = Server({
   // Provide the definitions for your game(s).
   games: [TicTacToe],
 
-  Origins: ['http://example.com', Origins.LOCALHOST_IN_DEVELOPMENT],
+  origins: ['http://example.com', '51.38.32.47', Origins.LOCALHOST],
 });
 
 const lobbyConfig = {
@@ -25,4 +25,4 @@ server.router.use('/games/:name/create', async (ctx, next) => {
   next();
 });
 
-server.run({ port: 8080, lobbyConfig }, () => console.log("server running on 8080..."));
+server.run({ port: 8080, lobbyConfig }, () => console.log("server running... on 8080"));
