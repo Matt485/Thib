@@ -2,17 +2,18 @@
   "name": "tib",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "source": "server.js",
+  "main": "src/outserver.js",
   "scripts": {
-    "dev": "DEBUG=koa* node out.js",
-    "build": "esbuild server.js --outfile=out.js",
+    "dev": "DEBUG=koa* node src/outserver.js",
+    "build": "parcel build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "boardgame.io": "^0.50.2",
-    "esbuild": "^0.17.5"
+    "parcel": "^2.8.3"
   },
   "devDependencies": {
   }

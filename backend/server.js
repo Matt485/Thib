@@ -1,5 +1,5 @@
-const { Server, Origins } = require('boardgame.io/server');
-const { TicTacToe } = require('./src/Game.mjs');
+import { Server, Origins } from 'boardgame.io/server';
+import { TicTacToe } from './src/Game.mjs';
 
 const server = Server({
   // Provide the definitions for your game(s).

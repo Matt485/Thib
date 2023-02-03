@@ -1,4 +1,4 @@
-const { INVALID_MOVE } = require('boardgame.io/core');
+// const { INVALID_MOVE } = require('boardgame.io/core');
 
 // Return true if `cells` is in a winning configuration.
 function IsVictory(cells) {
@@ -30,9 +30,9 @@ export const TicTacToe = {
 
   moves: {
     clickCell: ({ G, playerID }, id) => {
-      if (G.cells[id] !== null) {
-        return INVALID_MOVE;
-      }
+      // if (G.cells[id] !== null) {
+      //   return INVALID_MOVE;
+      // }
       G.cells[id] = playerID;
     }
   },
