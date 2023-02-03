@@ -41,7 +41,7 @@ services:
     depends_on: 
       - backend
     command: ['sh', '-cx', "npm install && npm run build && npm run preview"]
-    network_mode: host
+    # network_mode: host
     networks:
       public:
 networks:
