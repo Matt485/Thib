@@ -1,8 +1,9 @@
 const { Server, Origins } = require('boardgame.io/server');
+const { TicTacToe } = require('./src/Game.mjs');
 
 const server = Server({
   // Provide the definitions for your game(s).
-  games: [],
+  games: [TicTacToe],
 
   origins: ['172.18.0.2', '172.18.0.3', 'http://172.18.0.2', 'http://172.18.0.3', Origins.LOCALHOST],
 });

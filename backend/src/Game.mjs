@@ -1,4 +1,4 @@
-import { INVALID_MOVE } from 'boardgame.io/core';
+const { INVALID_MOVE } = require('boardgame.io/core');
 
 // Return true if `cells` is in a winning configuration.
 function IsVictory(cells) {
