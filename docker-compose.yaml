@@ -17,7 +17,7 @@ services:
       - ./backend/package.json:/code/package.json
       - ./backend/server.js:/code/server.js
     command:
-      ['sh', '-cx', "npm i && npm run build && npm run dev"]
+      ['sh', '-cx', "npm i && touch backend/bg.db && npm run build && npm run dev"]
     # network_mode: host
     networks:
       public:
