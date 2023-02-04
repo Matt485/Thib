@@ -4,7 +4,8 @@ import { ConfirmDialog } from "./confirm";
 import { Tabs } from "./tabs";
 import { saveTheThibsData } from "./saveTheThibsData";
 import useCopyToClipboard from "./clipboard";
-import { ticTacToeData } from "./tic-tac-toe-data";
+import App from "./ttt/App"
+
 
 const lobby = () => {
 
@@ -46,23 +47,14 @@ const lobby = () => {
     setIsClickedGame2(!isClickedGame2);
   };
 
-  const getLobbyData = () => {
-
-    fetch('http://51.38.32.47:8081/games/tic-tac-toe')
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  };
-
-  getLobbyData();
-
   return (
     <>
-      <h5> hey </h5>
       <div id="lobby" className="w-[85%] h-[80%] flex items-center justify-center gap-[0.5%] mx-[0.25%]">
         <div id="leftside" className="w-[25%] h-full flex flex-col items-center justify-center">
           <div id="lefttop" className="w-full h-[20%] flex items-center justify-center">           
             <div id="twologos" className="w-full h-full flex items-center justify-center">
-              <img id="smlogomed" className="w-[30%] h-auto" src={("../img/logomed.png")} alt="funny medusa logo"/>
+              <div id="smlogomed" className="bg-logomed bg-contain bg-no-repeat bg-center w-[30%] h-full"></div>
+              {/* <img id="smlogomed" className="w-[30%] h-auto" src={("../img/logomed.png")} alt="funny medusa logo"/> */}
               <div id="smashun" className="">
                 <h1 id="smlogothib" className="font-audiowide">THIB</h1>
               </div>
@@ -89,7 +81,7 @@ const lobby = () => {
 
                 <div id="container" className={!isClicked ? "w-1/3 h-full flex items-center justify-end" : "collapse w-[0%] h-[0%]"}>
                     <div id="btn" className="w-[75%] h-[60%]">
-                        <Link className="w-full h-full"  to="#" onClick={onSubmit}>
+                        <Link className="w-full h-full" to="#" onClick={onSubmit}>
                             BACK
                         </Link>
                     </div>
@@ -97,7 +89,7 @@ const lobby = () => {
 
                 <div id="container" className={isClicked ? "w-1/3 h-full flex items-center justify-end" : "collapse w-[0%] h-[0%]"}>
                     <div id="btn" className="w-[75%] h-[60%]">
-                        <Link className="w-full h-full"  to="#" onClick={handleClick}>
+                        <Link className="w-full h-full" to="#" onClick={handleClick}>
                             BACK
                         </Link>
                     </div>
@@ -152,12 +144,15 @@ const lobby = () => {
                     </div>
 
                     <div className={!isClickedGame2 ? "collapse w-[0%] h-[0%]": "w-full h-full"}>
-                        <Tabs data={ticTacToeData} />
+                      <div className="w-full h-full flex items-center justify-center">
+                        <App />
+                      </div>
                     </div>
                 </div>
             </div>
         </div>
       </div>
+      <div id="blur" style={{display: confirm ? 'block' : 'none'}}></div>
       <ConfirmDialog onConfirm={onConfirm} onCancel={() => setConfirm(false)} open={confirm}/>
     </>
   );

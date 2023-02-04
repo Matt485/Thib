@@ -27,10 +27,10 @@ server.router.use(async (ctx, next) => {
 // });
 
 // Add middleware to the create game route.
-server.router.use('/games/:name/create', async (ctx, next) => {
-  // const { numPlayers, setupData } = await fetchDataFromSomeCustomAPI();
-  ctx.body = 'Hello Middleware!';
-  next();
-});
-
+// server.router.use('/games/:name/create', async (ctx, next) => {
+//   // const { numPlayers, setupData } = await fetchDataFromSomeCustomAPI();
+//   ctx.body = 'Hello Middleware!';
+//   next();
+// });
+//
 server.run({ port: 8080, lobbyConfig }, () => console.log("server running... on 8080"));

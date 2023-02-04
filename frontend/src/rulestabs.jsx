@@ -4,12 +4,12 @@ import React from "react";
 
     const [visibleTab, setVisibleTab] = React.useState(props.data[0].id)
   
-    const listTitles = props.data.map((item, i) => 
-        <li key={i} onClick={() => setVisibleTab(item.id)} className={visibleTab != item.id ? "tab-title tab-title--inactive" : "tab-title"}>{item.tabTitle}</li>
+    const listTitles = props.data.map((item) => 
+        <li key={item.id} onClick={() => setVisibleTab(item.id)} className={visibleTab != item.id ? "tab-title tab-title--inactive" : "tab-title"}>{item.tabTitle}</li>
     )       
                                      
     const listContent = props.data.map((item) => 
-        <div className="w-full h-full" style={visibleTab === item.id ? {} : {display: 'none'}}>{item.tabContent}</div>
+        <div key={item.id} className="w-full h-full" style={visibleTab === item.id ? {} : {display: 'none'}}>{item.tabContent}</div>
     )
     
     return (
