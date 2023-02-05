@@ -1,7 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const filepath = "../bg.db";
 
-function createDbConnection() {
+export const dbcon = () => {
   const db = new sqlite3.Database(filepath, (error) => {
     if (error) {
       return console.error(error.message);

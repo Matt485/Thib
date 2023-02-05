@@ -1,5 +1,8 @@
 import { Server, Origins } from 'boardgame.io/server';
 import { TicTacToe } from './src/Game.mjs';
+import { dbcon } from './src/db.mjs';
+
+const db = dbcon();
 
 const server = Server({
   // Provide the definitions for your game(s).

@@ -1,5 +1,36 @@
 import { Link} from "react-router-dom";
 
+import { Client } from 'boardgame.io/client'; //
+import { SocketIO } from 'boardgame.io/multiplayer' //
+import { TicTacToe } from './ttt/Game.js' // 
+import { TicTacToeBoard } from './ttt/Board.jsx' // 
+
+const App2 = Client({
+  // A game object.
+  game: TicTacToe,
+  numPlayers: 2,
+  // matchID: '',
+
+  // Your React component representing the game board.
+  // The props that this component receives are listed below.
+  // When using TypeScript, type the component's properties as
+  // extending BoardProps.
+  board: TicTacToeBoard,
+
+  // Optional: React component to display while the client
+  // is in the "loading" state prior to the initial sync
+  // with the game master. Relevant only in multiplayer mode.
+  // If this is not provided, the client displays "connecting...".
+  // loading: LoadingComponent,
+
+  multiplayer: SocketIO({ server: 'http://51.38.32.47:8080' }),
+  debug: false,
+});
+
+App2.start();
+
+console.log(App2);
+
 const home = () => {
   return (
     <>
